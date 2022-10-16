@@ -1,10 +1,13 @@
 # lmp-startup
+
 A small program that can make the use of LMP more convenient.
 
 ## Details
+
 This is a LMP command line initiator to invoke ecli commands:
 
 ### User
+
 First, we have a use case for developers who want to use an ebpf binary or program but doesn't know how/where to find it:
 Run directly.
 
@@ -57,19 +60,21 @@ LMP_REPOSITORY=https://lmp.ebpf.io lmp run opensnoop
 
 ecli has implemented the related functions, including run and pull, only need to have an initiator to call ecli on the command line when lmp run.
 
-lmp run xxx is equivalent to
+``lmp run xxx`` is equivalent to
 ```
 sudo EUNOMIA_REPOSITORY=https://linuxkerneltravel.github.io/lmp/ EUNOMIA_HOME=/home/ubuntu/.lmp/ ./ecli run xxx
 ```
-lmp pull xxx is equivalent to
+``lmp pull xxx`` is equivalent to
 ```
 sudo EUNOMIA_REPOSITORY=https://linuxkerneltravel.github.io/lmp/ EUNOMIA_HOME=/home/ubuntu/.lmp/ ./ecli pull xxx
 ```
-其他同理。LMP 的命令行里面只需要去执行对应的命令，类似于 C 语言使用 system("ecli run xxx") 这样。
+
 The same goes for the rest. The LMP command line only needs to execute the corresponding command, similar to C language using system("ecli run xxx") such.
 
 ### Developer
+
 Our second role is a developer who wants to create a universal eBPF/WASM precompiled binary, distribute it on any machine and operating system, and load it dynamically to run. This is useful for command-line tools or anything you can run directly in the Shell, or as a plug-in for large projects.
+
 Generate ebpf data files.
 
 ```
@@ -129,6 +134,9 @@ docker run -it -v `pwd`/:/src/ yunwei37/ebpm:latest gen-wasm-skel
 And so on. The above ecli and docker commands have been implemented, so a command line wrapper and initiator are needed to hide the complexity of the underlying commands.
 
 ## Recommend
+
 The relevant framework eunomia-bpf: An eBPF program Dynamic Loading Framework: https://github.com/eunomia-bpf/eunomia-bpf
+
 The details for Linux Microscope LMP project: https://github.com/linuxkerneltravel/lmp
+
 The details for clipp project: https://github.com/muellan/clipp#an-example-from-docopt
