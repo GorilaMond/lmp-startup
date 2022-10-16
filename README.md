@@ -5,12 +5,12 @@ A small program that can make the use of LMP more convenient.
 ## Dependence
 
 ecli https://github.com/eunomia-bpf/eunomia-bpf/tree/master/ecli#readme
-```
+```bash
 # download the release from https://github.com/eunomia-bpf/eunomia-bpf/releases/latest/download/ecli
 wget https://aka.pw/bpf-ecli -O ecli && chmod +x ecli
 ```
 docker
-```
+```bash
 curl -fsSL https://get.docker.com | bash -s docker --mirror Aliyun
 ```
 
@@ -23,7 +23,7 @@ This is a LMP command line initiator to invoke ecli commands:
 First, we have a use case for developers who want to use an ebpf binary or program but doesn't know how/where to find it:
 Run directly.
 
-```
+```bash
 # Use a name and run it directly. If it's not available locally, download it from the corresponding repo on the web
 $ lmp run opensnoop
 ...
@@ -55,7 +55,7 @@ Trace standard and real-time signals.
 
 In fact, the run command contains the pull command. If the local ebpf file is not available, it will be downloaded from the Internet. If the local EBPF file is available, it will be directly used:
 
-```
+```bash
 $ lmp pull opensnoop
 $ lmp run opensnoop
 ...
@@ -65,7 +65,7 @@ Or he or she can search the web and download it (see the next chapter).
 
 You can switch sources, such as from github to an lmp static server:
 
-```
+```bash
 # Download from lmp static server, prefix path changed to https://lmp.ebpf.io
 LMP_REPOSITORY=https://lmp.ebpf.io lmp run opensnoop
 ```
@@ -73,11 +73,11 @@ LMP_REPOSITORY=https://lmp.ebpf.io lmp run opensnoop
 ecli has implemented the related functions, including run and pull, only need to have an initiator to call ecli on the command line when lmp run.
 
 ``lmp run xxx`` is equivalent to
-```
+```bash
 sudo EUNOMIA_REPOSITORY=https://linuxkerneltravel.github.io/lmp/ EUNOMIA_HOME=/home/ubuntu/.lmp/ ./ecli run xxx
 ```
 ``lmp pull xxx`` is equivalent to
-```
+```bash
 sudo EUNOMIA_REPOSITORY=https://linuxkerneltravel.github.io/lmp/ EUNOMIA_HOME=/home/ubuntu/.lmp/ ./ecli pull xxx
 ```
 
@@ -89,7 +89,7 @@ Our second role is a developer who wants to create a universal eBPF/WASM precomp
 
 Generate ebpf data files.
 
-```
+```bash
 # Generate a project template
 $ lmp init opensnoop
 init project opensnoop success.
@@ -132,15 +132,15 @@ The code that users need to write in app.c should be pure, normal C code, withou
 
 Among them:
 ``lmp build`` is equivalent to
-```
+```bash
 docker run -it -v `pwd`/:/src/ yunwei37/ebpm:latest 
 ```
 ``lmp init hello-world`` is equivalent to
-```
+```bash
 git clone https://github.com/eunomia-bpf/ebpm-template && mv ebpm-template hello-world
 ```
 ``lmp gen-wasm-skel`` is equivalent to
-```
+```bash
 docker run -it -v `pwd`/:/src/ yunwei37/ebpm:latest gen-wasm-skel
 ```
 And so on. The above ecli and docker commands have been implemented, so a command line wrapper and initiator are needed to hide the complexity of the underlying commands.
