@@ -2,6 +2,18 @@
 
 A small program that can make the use of LMP more convenient.
 
+## Dependence
+
+ecli https://github.com/eunomia-bpf/eunomia-bpf/tree/master/ecli#readme
+```
+# download the release from https://github.com/eunomia-bpf/eunomia-bpf/releases/latest/download/ecli
+wget https://aka.pw/bpf-ecli -O ecli && chmod +x ecli
+```
+docker
+```
+curl -fsSL https://get.docker.com | bash -s docker --mirror Aliyun
+```
+
 ## Details
 
 This is a LMP command line initiator to invoke ecli commands:
