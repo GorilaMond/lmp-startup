@@ -2,12 +2,20 @@
 
 A small program that can make the use of LMP more convenient.
 
-## Dependence
+## Install with ecil
+
+```bash
+wget https://aka.pw/bpf-ecli -O ecli && chmod +x ecli && sudo mv ecil /usr/bin
+curl -fsSL https://get.docker.com | bash -s docker --mirror Aliyun
+
+```
+
+## Dependency
 
 ecli https://github.com/eunomia-bpf/eunomia-bpf/tree/master/ecli#readme
 ```bash
 # download the release from https://github.com/eunomia-bpf/eunomia-bpf/releases/latest/download/ecli
-wget https://aka.pw/bpf-ecli -O ecli && chmod +x ecli
+wget https://aka.pw/bpf-ecli -O ecli && chmod +x ecli && sudo mv ecil /usr/bin
 ```
 docker
 ```bash
